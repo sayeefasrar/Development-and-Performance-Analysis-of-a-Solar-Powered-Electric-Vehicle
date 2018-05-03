@@ -1,0 +1,18 @@
+clc;
+clear all;
+close all;
+current = [6.4 26.4 26.2 20.3 31.3 14.7 36.7 31.2 32.7 38.4 17.4 26.7 20.7 30.2 29.3 27.0 35.2 35.0 30.2 33.5 19.2 6.3 22.3 28.1 6.4];
+time= 00:10:240;
+Q(1) = 0;
+
+for  i = 2:25
+    Q(i) = trapz(time(1:i),current(1:i));
+end
+figure(3);
+QTotal = trapz(time, current)
+plot(time, 42.97-Q/3600,'linewidth',2),xlabel('Time(sec)','FontWeight','bold'),ylabel('Charge(Ah)','FontWeight','bold'),grid on,title('Charge (Ah) vs Time','FontWeight','bold'),set(gca,'FontWeight','bold');
+annotation('textbox', [.5 .81 .35 .1],'String',[sprintf('Total Discharged=%.4fAh',QTotal/3600) ],'FontWeight','bold','BackgroundColor','white');
+figure(2);
+plot(time,current,'linewidth',2),xlabel('Time(sec)','FontWeight','bold'),ylabel('Current(A)','FontWeight','bold'),grid on,title('Current vs Time','FontWeight','bold'),set(gca,'FontWeight','bold')
+
+

@@ -1,0 +1,18 @@
+clc;
+clear all;
+close all;
+current = [];
+time= 00:30:3150;
+Q(1) = 0;
+
+for  i = 2:106
+    Q(i) = trapz(time(1:i),current(1:i));
+end
+figure(3);
+QTotal = trapz(time, current)
+plot(time, 70-Q/3600,'linewidth',2),xlabel('Time(sec)','FontWeight','bold'),ylabel('Charge(Ah)','FontWeight','bold'),grid on,title('charge (Ah) vs Time','FontWeight','bold'),set(gca,'FontWeight','bold');
+annotation('textbox', [.55 .81 .32 .1],'String',['Total Discharged=13.64Ah'],'FontWeight','bold','BackgroundColor','white')
+figure(2);
+plot(time,current,'linewidth',2),xlabel('Time(sec)','FontWeight','bold'),ylabel('Current(A)','FontWeight','bold'),grid on,title('Current vs Time','FontWeight','bold'),set(gca,'FontWeight','bold')
+
+
