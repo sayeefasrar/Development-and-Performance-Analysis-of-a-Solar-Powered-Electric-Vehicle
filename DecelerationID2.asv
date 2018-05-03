@@ -1,0 +1,7 @@
+Speed=[56.2 52.5 50.9 41.1 36.6]; 
+Current=[4.3 3.5 3.6 1 1.5];
+
+hold on;
+figure(6)
+h6=plot(Speed,Current),grid on,set ( gca, 'xdir', 'reverse' ),xlabel('Speed(Km/h)','FontWeight','bold'),ylabel('Current(A)','FontWeight','bold'),title('Speed vs. Current Characterictics while Decceleration','FontWeight','bold')legend('T)
+set([h5 h6], 'Parent',get(h4,'Parent'))

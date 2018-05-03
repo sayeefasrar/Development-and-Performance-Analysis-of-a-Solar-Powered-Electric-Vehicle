@@ -1,0 +1,6 @@
+%%Test Data 2
+Speed=[14.9 21.3 22.9 29.3 37.8 49.1 52.6 53]; 
+Current=[1.5 1.5 1.5 1.5 1.6 2.7 2.6 4.9 4.2 4.1 4.1];
+
+hold on;
+plot(Speed,Current),grid on,xlabel('Speed(Km/h)','FontWeight','bold'),ylabel('Current(A)','FontWeight','bold'),title('Speed vs. Current Characterictics while Acceleration','FontWeight','bold')

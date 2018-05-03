@@ -1,0 +1,8 @@
+Speed=[56.2 52.5 50.9 41.1 36.6 ];
+Magnetic_field=[38.6 37.2 39 36.7 37.3];
+
+hold off;
+figure(12)
+
+h12=plot(Speed,Magnetic_field),legend('Third Set of Data'),grid on,set ( gca, 'xdir', 'reverse' ),xlabel('Speed(Km/h)','FontWeight','bold'),ylabel('Magnetic Field Strength(\muT)','FontWeight','bold'),title('Magnetic Field Strength vs. Speed Characterictics while Deceleration','FontWeight','bold')
+set([h10 h11], 'Parent',get(h12,'Parent'))

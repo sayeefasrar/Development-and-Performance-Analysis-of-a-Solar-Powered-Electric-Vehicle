@@ -1,0 +1,18 @@
+clc;
+clear all;
+close all;
+V1=62.4;%Voc%
+V2=[61.4 61.3 61.2 61.2 61.1 61.1 61 61 61 60.9 60.8 60.8 60.7 60.6]; %Vt%
+x=V1-V2;
+I=[2.07 2.27 2.48 2.62 2.84 3.08 3.2 3.4 3.65 3.93 4.26 4.64 4.81 5.51];
+[a y] = lineReg(I, x)
+eqn = sprintf('V_{oc}-V_{t}= %.4f*Battery Current + %.4f', a, y);
+
+hold on
+plot(I,x,'*','LineWidth',2);
+plot(I, a.*I+y,'LineWidth',2),xlabel('Battery Current (A)','FontWeight','bold'),ylabel('V_{oc}-V_{t}(V)','FontWeight','bold'),set(gca,'FontWeight','bold'), title('SOC=88.38%','FontWeight','bold'), grid on;
+annotation('textbox', [.6 .2 .25 .1], 'String', ...
+                    ['R_{internal} = 0.2189','\Omega'],'FontWeight','bold','BackgroundColor','white'),
+                annotation('textbox', [.15 .81 .5 .1],'String',[eqn],'FontWeight','bold','BackgroundColor','white');
+legend('Raw','Fitted'),set(legend,'fontweight','bold')
+hold off
